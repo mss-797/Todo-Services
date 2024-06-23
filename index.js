@@ -11,10 +11,11 @@ app.use(cors())
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-dbConnection();
 app.use('/todo', TOdoRoutes);
+dbConnection();
 
 console.log('Server Created...');
 app.get('/', async(req,res) => {
-    res.write('Hello World...');
+    res.end('Hello World');
+    console.log('Hello World');
 }).listen(process.env.PORT, () => { console.log('Todo Services Running on port : 9090 ')});
